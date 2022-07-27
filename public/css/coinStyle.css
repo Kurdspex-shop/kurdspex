@@ -1,0 +1,69 @@
+.items {
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 1000px;
+}
+
+.items div {
+    margin-top: 15px;
+    margin-right: 10px;
+    min-width: 19rem;
+}
+
+.items div div {
+    border-radius: 50px;
+    border: 6px solid #2b3036;
+    background-color: #2b3036;
+}
+
+.items div .card:hover {
+    border-color: #1a1d20;
+    background-color: #1a1d20;
+}
+
+.items div .card:hover .item-img{
+    padding: 8px;
+}
+
+.items div div img {
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.items div div div {
+    border: none;
+    background-color: #2b303600;
+}
+
+.buy h6 {
+    font-size: 35px;
+}
+
+.item-img {
+    background-color: white;
+    padding: 18px;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    transition: 500ms;
+}
+
+.item-btn {
+    text-decoration: none;
+}
+
+.account .title {
+    border-radius: 45px;
+}
+
+.account .title h1 {
+    font-size: 55px;
+}
+
+#plus {
+    font-size: 40px;
+    display: flex;
+    position: fixed;
+    top: 87%;
+    right: 4%;
+}

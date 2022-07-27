@@ -1,0 +1,35 @@
+.accountMaster .title {
+    border-radius: 20px;
+}
+
+.accountMaster .card-header {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.accountMaster .card-body .card {
+    border-radius: 20px;
+}
+
+.accountMaster .number {
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.accountMaster .card .btn2{
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.accountMaster .card .btn1{
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.accountMaster .d-flex {
+    text-align: left;
+}

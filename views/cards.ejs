@@ -1,0 +1,62 @@
+<%- include("portials/header") %>
+<link rel="stylesheet" href="../css/cardsStyle.css">
+<link rel="stylesheet" href="../css/infobarStyle.css">
+<link rel="stylesheet" href="../css/navbarStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+
+<%- include("portials/navbar") %>
+<div id="nav">Cards</div>
+<div class="IQD d-none"><%= IQD %></div>
+<div class="lang d-none"><%= lang %></div>
+<div class="cardTab d-none"><% if(tab) { %><%= tab %><% } %></div>
+
+<div class="cardBody mt-3">
+  <div class="container-fluid cards mb-5 main show">
+    <div class="row">
+      <div class="col-xl-2 col-lg-4 col-md-5 mx-auto mt-4">
+        <div class="shadow">
+          <a href="/cards?tab=windows">
+            <img src="./W10P.jpg" class="card-img-top mx-auto d-block">
+          </a>
+        </div>
+      </div>
+  
+      <div class="col-xl-2 col-lg-4 col-md-5 mx-auto mt-4">
+        <div class="shadow office">
+          <a href="/cards?tab=office">
+            <img src="./O19PP.jpg" class="card-img-top mx-auto d-block">
+          </a>
+        </div>
+      </div>
+  
+      <div class="col-xl-2 col-lg-4 col-md-5 mx-auto mt-4">
+        <div class="shadow ws">
+          <a href="/cards?tab=server">
+            <img src="./WSS19.jpg" class="card-img-top mx-auto d-block">
+          </a>
+        </div>
+      </div>
+  
+      <div class="col-xl-2 col-lg-4 col-md-5 mx-auto mt-4">
+        <div class="shadow office">
+          <img src="./O19PP.jpg" class="card-img-top mx-auto d-block">
+        </div>
+      </div>
+  
+      <div class="col-xl-2 col-lg-4 col-md-5 mx-auto mt-4">
+        <div class="shadow ws">
+          <img src="./WSS19.jpg" class="card-img-top mx-auto d-block">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../javaScript/cards.js"></script>
+<script src="../javaScript/modalLanguage.js"></script>
+
+<%- include("portials/infobar") %> 
+<%- include("portials/footer") %>

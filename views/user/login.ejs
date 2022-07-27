@@ -1,0 +1,86 @@
+<%- include("../portials/header") %>
+<link rel="stylesheet" href="../../css/singUpStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body> 
+
+<div class="container sing">
+    <div class="row">
+        <div class="col-xl-6 mx-auto mt-3 mt-md-5">
+            <div class="text-center">
+                <a href="/"><img class="logo" src="/KurdspexV1.svg"></a>
+                <div class="mb-2">
+                    <h1 class="card-title">Kurdspex</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% if(error[0]) { %> 
+        <div class="row m-0">
+            <div class="col-12 col-lg-5 mx-auto p-0">
+                <div class="alert alert-danger mt-2 text-center" role="alert">
+                    <%= error[0] %> 
+                </div>
+            </div>
+        </div>
+    <% } %> 
+
+    <div class="row">
+        <div class="col-xl-6 mx-auto post">
+            <div class="">
+                <form class="px-2 px-md-5 py-2 validation" action="/log-in" method="POST" novalidate>
+                    <label for="name">Email</label>
+                    <input class="form-control" type="email" name="email" placeholder="enter your email" required>
+                    <label for="name" class="pt-2">Password</label>
+                    <input class="form-control" type="password" name="user_password" placeholder="Password" required>
+                    <div class="text-center b">
+                        <input class="mx-auto mt-4 px-5 py-1 btn btn-success" type="submit" value="Log In">
+                    </div>
+                </form>
+
+                <button class="forgot d-block mx-auto mt-3" data-bs-toggle="modal" data-bs-target="#Modal">Forgot Password?</button>
+                <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header bg-dark">
+                          <h5 class="modal-title text-light mx-auto h1" id="ModalLabel">Forgot Password</h5>
+                        </div>
+                        <div class="modal-body text-center h3" style="font-weight: 400;">
+                            for changing your password you can contact us throw those links
+                        </div>
+                        <div class="job-cv mt-3">
+                            <div class="d-flex flex-row mx-1 mx-md-5 mb-4 text-dark">
+                                <div class="mx-auto">
+                                    <a href="#" class="icon">
+                                        <i class="fab fa-facebook-messenger"></i>
+                                    </a>
+                                </div>
+                                <div class="mx-auto">
+                                    <a href="https://t.me/Kurdspex" class="icon">
+                                        <i class="fab fa-telegram"></i>
+                                    </a>
+                                </div>
+                                <div class="mx-auto">
+                                    <a href="viber://chat?number=07518979796" class="icon">
+                                        <i class="fab fa-viber"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../javaScript/validation.js"></script>
+ 
+<%- include("../portials/footer") %>
+
+</body>
+</html>

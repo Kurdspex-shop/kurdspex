@@ -1,0 +1,32 @@
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <h5 class="modal-title text-light mx-auto h1" id="ModalLabel">Editing Account</h5>
+        </div>
+        <div class="modal-body text-start">
+            <form action="/account/username?_method=PUT" method="POST">
+                <label for="name">User Name</label>
+                <div class="input-group mb-3">
+                  <input class="form-control my-auto" name="username" type="text" value="<%= user.username %>">
+                  <button class="btn btn-outline-secondary" type="submit">Save</button>
+                </div>
+            </form>
+            <form action="/account/email?_method=PUT" method="POST">
+                <label for="email" class="pt-2">Email address</label>
+                <div class="input-group mb-3">
+                  <input type="email" name="email" class="form-control" value="<%= user.email %>">
+                  <button class="btn btn-outline-secondary" type="submit">Save</button>
+                </div>
+            </form>
+            <form action="/account/phoneNumber?_method=PUT" method="POST">
+              <label for="phoneNumber" class="pt-2">Phone Number</label>
+              <div class="input-group mb-5">
+                <input type="tel" name="phoneNumber" class="form-control" value="<%= user.phoneNumber %>">
+                <button class="btn btn-outline-secondary" type="submit">Save</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

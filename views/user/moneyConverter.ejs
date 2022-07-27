@@ -1,0 +1,41 @@
+<%- include("../portials/header") %>
+<link rel="stylesheet" href="../../css/infobarStyle.css">
+<link rel="stylesheet" href="../../css/navbarStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+
+<div class="IQD d-none"><%= IQD %></div>
+
+<%- include("../portials/navbar") %> 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="display-2 text-center mt-3">Money Converter</div>
+            <div class="d-flex mt-5">
+                <div class="display-6 mx-4">From</div> 
+                <select class="form-select from" aria-label="Default select example">
+                    <option value="USD">Dollar</option>
+                    <option value="IQD">IQD</option>
+                </select>
+                <div class="display-6 mx-4">To</div> 
+                <select class="form-select to" aria-label="Default select example">
+                    <option value="IQD">IQD</option>
+                    <option value="USD">Dollar</option>
+                </select>
+            </div>
+            <div class="d-flex mt-4">
+                <div class="display-6 mx-4">Amount</div> 
+                <input class="form-control amount" type="number" value="1" min="0.1">
+            </div>
+            <button class="btn btn-outline-dark mt-4 mx-auto d-flex px-5 convert"><div class="h3" style="font-weight: 400;">Convert</div></button>
+            <div class="display-2 text-center mt-5 result"></div>
+        </div>
+    </div>
+</div>
+
+<script src="../javaScript/moneyConverter.js"></script>
+
+<%- include("../portials/footer") %> 

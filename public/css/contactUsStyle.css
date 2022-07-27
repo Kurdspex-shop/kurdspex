@@ -1,0 +1,117 @@
+.con {
+    text-align: center;
+    min-height: 1000px;
+}
+
+.con .card {
+    background-color: #2b3036;
+    border-radius: 35px;
+    font-size: 20px;
+}
+
+.con .card h1 {
+    font-size: 70px;
+}
+
+.con .icon{
+    border-width: 5px;
+}
+
+.con .icon i {
+    font-size: 120px;
+    color: #2b3036;
+}
+
+.con .icon .fab {
+    transition: all 500ms;
+}
+
+.con .icon .fab:hover {
+    transform: scale(1.2);
+}
+
+.con .icon .fa-facebook:hover {
+    color: #003b9b;
+}
+
+.con .icon .fa-facebook-messenger:hover {
+    color: #307bf5;
+}
+
+.con .icon .fa-instagram:hover {
+    color: #b8005c;
+}
+
+.con .icon .fa-telegram:hover {
+    color: #4b86e6;
+}
+
+.con .icon .fa-viber:hover {
+    color: #6603b8;
+}
+
+.con .icon .fa-twitter:hover {
+    color: #00b4e0;
+}
+
+.contact {
+    border-width: 5px;
+    border-color: #2b3036;
+    transition: all 500ms;
+}
+
+.contact:hover {
+    transform: scale(1.1);
+}
+
+.contact1:hover {
+    background-color: #034cc0;
+    border-color: #034cc0;
+    color: #034cc0;
+}
+
+.contact2:hover {
+    background-color: #c00903;
+    border-color: #c00903;
+    color: #c00903;
+}
+
+.contact .card-body {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.con div {
+    transition: 300ms;
+}
+
+.con .email {
+    transition: all 300ms;
+}
+
+.con .email:hover {
+    color: #8d0000;
+    transform: scale(1.1);
+}
+
+.con .email div:active {
+    transform: scale(0.8);
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    border: 5px solid #2b3036;
+    margin-bottom: 0;
+    border-bottom: none;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.location {
+    border-radius: 50px;
+}
+
+.location h1 {
+    font-weight: 400;
+}

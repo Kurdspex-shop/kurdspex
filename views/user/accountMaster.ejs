@@ -1,0 +1,146 @@
+<%- include("../portials/header") %>
+<link rel="stylesheet" href="../../css/accountMasterStyle.css">
+<link rel="stylesheet" href="../../css/searchBarStyle.css">
+<link rel="stylesheet" href="../../css/infobarStyle.css">
+<link rel="stylesheet" href="../../css/navbarStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+
+<%- include("../portials/navbar") %>
+
+<div class="container accountMaster mt-3 mb-5" style="min-height: 1000px;">
+    <div class="row">
+        <div class="col-xl-12 mx-auto">
+            <div class="card text-center bg-dark text-light title">
+                <div class="card-body">
+                  <h1 class="card-title">Account Master</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <form id="blog" class="d-flex mt-3 search-bar mx-auto" action="/accountMaster" method="GET">
+            <input class="form-control" name="search" type="search" placeholder="Search">
+            <button class="btn btn-outline-dark ps-2" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+
+    <div class="row mt-4">
+      <div class="col-xl-12 mx-auto">
+        <div class="card text-center bg-light text-dark title">
+            <div class="card-header bg-dark text-light">
+                <h3 class="card-title" style="font-weight: 400;">Admins Account</h3>
+            </div>
+            <div class="card-body">
+                <% for(var i = 0; i < user.length; i++){%>           
+                    <% if(users.isItemAdminById(user[i].id)){ %>
+                        <div class="card mt-1">
+                            <div class="d-flex">
+                              <div class="h4 number bg-dark text-light px-3 py-2 mb-0 text-center" style="width: 4%;"><%= i +1 %></div>
+                              <div class="h4 ps-3 py-2 mb-0" style="width: 16%;"><%= user[i].username %></div>
+                              <div class="h4 py-2 mb-0 me-auto" style="width: 35%;"><%= user[i].email %></div>
+                              <div class="h4 py-2 mb-0" style="width: 15%;"><%= user[i].phoneNumber %></div>
+                              <div class="h4 py-2 mb-0" style="width: 12%;">itemsAdmin</div>
+                              <div class="d-flex ms-auto" style="width: 18%;">
+                                <form action="/accountMaster/disable" method="POST">
+                                    <input type="text" name="id" value=<%= user[i].id %>  style="display: none;">
+                                    <% if(users.disabled.indexOf(user[i].id.toString()) === -1){ %>
+                                      <input class="my-0 h-100 btn btn-danger btn1" type="submit" value="Disable">
+                                    <% } else {%>
+                                      <input class="my-0 h-100 btn btn-success btn1" type="submit" value="Enable">
+                                    <% } %>
+                                </form>
+                                  <form action="/accountMaster/password" method="POST">
+                                    <input type="text" name="email" value="<%= user[i].email %>" style="display: none;">
+                                    <input class="my-0 h-100 btn btn-primary btn2" type="submit" value="Change Password">
+                                  </form>
+                              </div>
+                            </div>
+                        </div>
+                    <% continue; } %>
+
+                    <% if(users.isJobAdminById(user[i].id)){ %>
+                        <div class="card mt-1">
+                            <div class="d-flex">
+                              <div class="h4 number bg-dark text-light px-3 py-2 mb-0 text-center" style="width: 4%;"><%= i + 1 %></div>
+                              <div class="h4 ps-3 py-2 mb-0" style="width: 16%;"><%= user[i].username %></div>
+                              <div class="h4 py-2 mb-0 me-auto" style="width: 35%;"><%= user[i].email %></div>
+                              <div class="h4 py-2 mb-0" style="width: 15%;"><%= user[i].phoneNumber %></div>
+                              <div class="h4 py-2 mb-0" style="width: 12%;">jobAdmin</div>
+                              <div class="d-flex ms-auto" style="width: 18%;">
+                                  <form action="/accountMaster/disable" method="POST">
+                                    <input type="text" name="id" value=<%= user[i].id %>  style="display: none;">
+                                    <% if(users.disabled.indexOf(user[i].id.toString()) === -1){ %>
+                                      <input class="my-0 h-100 btn btn-danger btn1" type="submit" value="Disable">
+                                    <% } else {%>
+                                      <input class="my-0 h-100 btn btn-success btn1" type="submit" value="Enable">
+                                    <% } %>
+                                  </form>
+                                  <form action="/accountMaster/password" method="POST">
+                                    <input type="text" name="email" value="<%= user[i].email %>" style="display: none;">
+                                    <input class="my-0 h-100 btn btn-primary btn2" type="submit" value="Change Password">
+                                  </form>
+                              </div>
+                            </div>
+                        </div>
+                    <% continue; } %>
+
+                    <% if(users.isBlogAdminById(user[i].id)){ %>
+                        <div class="card mt-1">
+                            <div class="d-flex">
+                              <div class="h4 number bg-dark text-light px-3 py-2 mb-0 text-center" style="width: 4%;"><%= i + 1 %></div>
+                              <div class="h4 ps-3 py-2 mb-0" style="width: 16%;"><%= user[i].username %></div>
+                              <div class="h4 py-2 mb-0 me-auto" style="width: 35%;"><%= user[i].email %></div>
+                              <div class="h4 py-2 mb-0" style="width: 15%;"><%= user[i].phoneNumber %></div>
+                              <div class="h4 py-2 mb-0" style="width: 12%;">blogAdmin</div>
+                              <div class="d-flex ms-auto" style="width: 18%;">
+                                  <form action="/accountMaster/disable" method="POST">
+                                    <input type="text" name="id" value=<%= user[i].id %>  style="display: none;">
+                                    <% if(users.disabled.indexOf(user[i].id.toString()) === -1){ %>
+                                      <input class="my-0 h-100 btn btn-danger btn1" type="submit" value="Disable">
+                                    <% } else {%>
+                                      <input class="my-0 h-100 btn btn-success btn1" type="submit" value="Enable">
+                                    <% } %>
+                                  </form>
+                                  <form action="/accountMaster/password" method="POST">
+                                    <input type="text" name="email" value="<%= user[i].email %>" style="display: none;">
+                                    <input class="my-0 h-100 btn btn-primary btn2" type="submit" value="Change Password">
+                                  </form>
+                              </div>
+                            </div>
+                        </div>
+                    <% continue; } %>
+                <% } %> 
+            </div>
+
+            <div class="card-header bg-dark text-light mt-3" style="border-radius: 0px;">
+                <h3 class="card-title" style="font-weight: 400;">Users Account</h3>
+            </div>
+            <div class="card-body">
+                <% for(var i = 0; i < user.length; i++){%>
+                    <div class="card mt-1">
+                        <div class="d-flex">
+                          <div class="h4 number bg-dark text-light px-3 py-2 mb-0 text-center" style="width: 4%;"><%= i + 1 %></div>
+                          <div class="h4 ps-3 py-2 mb-0" style="width: 22%;"><%= user[i].username %></div>
+                          <div class="h4 py-2 mb-0 me-auto" style="width: 38%;"><%= user[i].email %></div>
+                          <div class="h4 py-2 mb-0" style="width: 17%;"><%= user[i].phoneNumber %></div>
+                          <div class="d-flex ms-auto" style="width: 12%;">
+                            <form action="/accountMaster/password" method="POST">
+                                <input type="text" name="email" value="<%= user[i].email %>" style="display: none;">
+                                <input class="my-0 h-100 btn btn-primary btn2" type="submit" value="Change Password">
+                            </form>
+                          </div>
+                        </div>
+                    </div>
+                <% } %> 
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<%- include("../portials/infobar") %> 
+<%- include("../portials/footer") %>

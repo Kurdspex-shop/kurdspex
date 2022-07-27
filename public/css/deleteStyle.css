@@ -1,0 +1,25 @@
+.title {
+    border-radius: 25px;
+}
+
+.row .main {
+    border-radius: 25px;
+    margin-bottom: 15px;
+}
+
+.card .main-header {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.items {
+    min-height: 100px;
+}
+
+.card .sub {
+    border-radius: 0;
+}
+
+.card .blog .card {
+    border-radius: 40px;
+}

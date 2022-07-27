@@ -1,0 +1,107 @@
+<%- include("../portials/header") %>
+<link rel="stylesheet" href="../../css/itemsStyle.css">
+<link rel="stylesheet" href="../../css/searchBarStyle.css">
+<link rel="stylesheet" href="../../css/infobarStyle.css">
+<link rel="stylesheet" href="../../css/navbarStyle.css">
+<link rel="stylesheet" href="../../css/paginatedStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+
+<%- include("../portials/navbar") %> 
+
+<div id="nav">Shopping</div>
+
+<div class="container-fluid">
+    <div class="text-light row text-center bg-dark sticky-md-top" style="top: -1px;">
+        <form class="row mx-auto mt-lg-3 mb-lg-3 px-xxl-1 mx-auto" action="/items" method="GET">
+            <div class="col-xl-4 row mx-auto p-0">
+                <label class="h3 mt-xl-0 mt-3 col-xl-5 text-xl-end" style="font-weight: 200;">Item Type</label>
+                <div class="col-xl-7">
+                    <select name="type" class="form-select mt-0">
+                        <option value="All" selected>All</option>
+                        <%- include("../option/itemOption") %> 
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-xl-4 row mx-auto p-0">
+                <label class="h3 mt-xl-0 mt-3 col-xl-5 text-xl-end" style="font-weight: 200;">Item Price</label>
+                <div class="d-flex mt-0 col-xl-7">
+                    <input class="form-control me-2" name="min" type="number" placeholder="Min Price" min="0" max="100000">
+                    <input class="form-control ms-2" name="max" type="number" placeholder="Max Price" min="1" max="100000">
+                </div>
+            </div>
+
+            <div class="col-xl-3 row mx-auto p-0">
+                <label class="h3 mt-xl-0 mt-3 col-xl-6 text-xl-end" style="font-weight: 200;">Item State</label>
+                <div class="col-xl-6">
+                    <select name="state" class="form-select mt-0">
+                        <option value="All" selected>All</option>
+                        <option value="new">New</option>
+                        <option value="used">Used</option>
+                    </select>
+                </div>
+            </div>
+
+            <input class="btn btn-outline-light my-lg-0 my-4 px-1 col-xl-1 mx-auto" type="submit" value="Search">
+        </form>
+    </div>
+
+    <div class="row bg-light">
+        <div class="row">
+            <form class="d-flex mt-3 search-bar" action="/items" method="GET">
+                <input class="form-control" name="search" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark ps-2" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+
+        <div class="row d-flex mt-3 items text-light mb-4">
+            <% for(var i = 0; i < items.length; i++){ %>
+                <div class="col-xxl-3 col-lg-4 col-md-6 col-12">
+                    <a href="/items/<%= items[i].id %>" class="item-btn text-light">
+                        <div class="card">
+                            <img src=<%= items[i].main_image %> class="card-img-top item-img">
+                            <div class="card-body mx-0 mt-2 pb-1 px-0">
+                                <h5 class="card-title mx-2"><%= items[i].item_name %><span class="badge rounded-pill bg-success ms-3" style="font-weight: 400;"><%= items[i].mode %></span></h5>
+                                <p class="card-text px-2 mb-0"><%= items[i].item_description.substring(0, 85) %>... </p>
+
+                                <% if(items[i].discount !== 0) { %>
+                                    <p class="text-center m-0 discount">$<%= items[i].discount %></p>
+                                <% } else if(items[i].coin !== 0) { %>
+                                    <p class="text-center text-warning m-0 discount" style="text-decoration: none;">+<%= items[i].coin %> coin</p>
+                                <% } else { %>
+                                    <p class="text-center m-0 discount" style="opacity: 0;">2</p>
+                                <% } %> 
+
+                                <div class="d-flex buy mt-0">
+                                    <h6 class="mx-auto">$<%= items[i].price %></h6>
+                                </div>
+
+                                <% if(admin) { %>
+                                    <form class="ms-2 text-center" id="option" action="/items/<%= items[i].id %>" method="POST">
+                                        <a class="btn btn-success px-5 mx-2" href="/items/<%= items[i].id %>/edit">Edit</a>
+                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">More</button>
+                                        <ul class="dropdown-menu">
+                                            <li><button type="submit" class="btn btn-danger px-5 m-0 ms-2">Delete</button></li>
+                                        </ul>
+                                   </form>
+                                <% } %>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% } %>  
+        </div>
+
+        <input type="number" id="num" value="<%= info.number %>" style="display: none;">
+        <input type="number" id="page" value="<%= info.page %>" style="display: none;">
+
+        <ul class="pagination mt-5 justify-content-center"></ul>
+    </div>
+</div>
+
+<%- include("../portials/infobar") %> 
+<script src="../../javaScript/paginatedItems.js"></script>
+<%- include("../portials/footer") %> 

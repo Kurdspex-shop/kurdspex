@@ -1,0 +1,15 @@
+.pagination li button {
+    background-color: #414141;
+}
+
+.pagination li button:hover {
+    background-color: #0f0f0f;
+}
+
+.pagination li button:focus {
+    background-color: #0f0f0f;
+}
+
+.pagination li .active {
+    background-color: #0f0f0f;
+}

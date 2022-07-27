@@ -1,0 +1,55 @@
+<%- include("../portials/header") %>
+<link rel="stylesheet" href="../../css/coinStyle.css">
+<link rel="stylesheet" href="../../css/infobarStyle.css">
+<link rel="stylesheet" href="../../css/navbarStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+
+<%- include("../portials/navbar") %> 
+
+<div id="nav">Coin Store</div>
+
+<% if(admin) { %>
+    <a id="plus" class="btn btn-dark rounded-circle p-3" href="/coinItems/new"><i class="fas fa-plus m-0"></i></a>
+<% } %> 
+
+<div class="container-fluid account mt-3 mb-5" style="min-height: 1000px;">
+    <div class="row">
+        <div class="col-xl-12 mx-auto">
+            <div class="card text-center bg-dark text-light title">
+                <div class="card-body">
+                    <% if(coin) { %>
+                        <h1 class="card-title">You Have <span class="text-warning"><%= coin %>  coins</span></h1>
+                    <% } else { %>
+                        <h1 class="card-title">Coin Offers</h1>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row d-flex mt-3 items text-light mb-4">
+        <% for(var i = 0; i < items.length; i++){ %>
+            <div class="col-xxl-3 col-lg-4 col-md-6 col-12">
+                <a href="/coinItems/<%= items[i].id %>" class="item-btn text-light">
+                    <div class="card">
+                        <img src=<%= items[i].main_image %> class="card-img-top item-img">
+                        <div class="card-body mx-0 mt-2 pb-1 px-0">
+                          <h5 class="card-title mx-2"><%= items[i].item_name %><span class="badge rounded-pill bg-success ms-3" style="font-weight: 400;"><%= items[i].mode %></span></h5>
+                          <p class="card-text px-2 mb-0"><%= items[i].item_description.substring(0, 85) %>... </p>
+
+                          <div class="d-flex buy mt-2">
+                            <h6 class="mx-auto text-warning"><%= items[i].price %> coins</h6>
+                          </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include("../portials/infobar") %> 
+<%- include("../portials/footer") %>

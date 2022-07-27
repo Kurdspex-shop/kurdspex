@@ -1,0 +1,62 @@
+.sing h1 {
+    font-size: 60px;
+}
+
+.logo {
+    width: 150px;
+    transition: 500ms;
+}
+
+.logo:hover {
+    width: 180px;
+}
+
+.post .card label {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 8px;
+}
+
+.post input {
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.post .b input {
+    font-size: 20px;
+}
+
+.post .forgot {
+    font-size: 20px;
+    color: #006eff;
+    background: none;
+    border: none;
+}
+
+.post .forgot:hover {
+    color: #004195;
+}
+
+.post .forgot:active {
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+
+.icon i {
+    font-size: 70px;
+    color: #2b3036;
+}
+
+.icon .fa-facebook-messenger:hover {
+    color: #307bf5;
+}
+
+.icon .fa-telegram:hover {
+    color: #4b86e6;
+}
+
+.icon .fa-viber:hover {
+    color: #6603b8;
+}

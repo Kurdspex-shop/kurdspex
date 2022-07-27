@@ -1,0 +1,136 @@
+.main .shadow {
+    background-color: #5C2E91;
+    border-radius: 25px;
+    transition: 1s;
+}
+
+.main img {
+    width: 90%;
+    border-radius: 55px;
+    object-fit: contain;
+    transition: 500ms;
+}
+
+.main .shadow {
+    transition: all 500ms;
+}
+
+.main .shadow:hover {
+    transform: scale(1.08);
+}
+
+.show {
+    display: block;
+}
+
+.cards {
+    min-height: 1000px;
+}
+
+.card {
+    min-width: 350px;
+    max-width: 400px;
+    border: 5px solid #5C2E91;
+    background-color: #5C2E91;
+    border-radius: 35px;
+    text-align: center;
+}
+
+.card img {
+    width: 80%;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card .card-body {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.card p {
+    font-size: 18px;
+}
+
+.card h1 {
+    font-size: 60px;
+}
+
+.card button {
+    font-size: 30px;
+}
+
+.card label {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card .card-body {
+    min-height: 390px;
+}
+
+.card input:focus {
+    outline: none;
+}
+
+/* office */
+#MicrosoftOffice {
+    background-color: #DC3C00;
+    border: 5px solid #DC3C00;
+}
+
+.main .office {
+    background-color: #DC3C00;
+}
+
+/* windows server */
+#WindowsServer {
+    background-color: #011891;
+    border: 5px solid #011891;
+}
+
+.main .ws {
+    background-color: #011891;
+}
+
+/* model */
+.modal-body {
+    font-size: 25px;
+    text-align: center;
+}
+
+.modal-body div {
+    font-weight: 600;
+}
+
+.modal-content {
+    border-radius: 50px;
+}
+
+.job-cv .icon{
+    border-width: 5px;
+}
+
+.job-cv .icon i {
+    font-size: 90px;
+    color: #2b3036;
+}
+
+.job-cv .icon .fa-facebook:hover {
+    color: #307bf5;
+}
+
+.job-cv .icon .fa-telegram:hover {
+    color: #4b86e6;
+}
+
+.job-cv .icon .fa-viber:hover {
+    color: #6603b8;
+}
+
+.language {
+    max-width: 55px;
+}

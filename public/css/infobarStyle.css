@@ -1,0 +1,33 @@
+.infobar {
+    height: 90px;
+}
+
+.infobar-line {
+    height: 50px;
+}
+
+.infobar-line hr {
+    align-items: center;
+    width: 95%;
+    border: 0;
+    height: 1px;
+    background: #212529;
+    background-image: linear-gradient(to right, #212529, rgb(255, 255, 255), #212529);
+}
+
+.infobar .pt-3 a {
+    color: #ff5100;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.infobar .fab {
+    color: white;
+    font-size: 50px;
+    transition: all 400ms;
+}
+
+.infobar .fab:hover {
+    color: #ff5100;
+    transform: translateY(-8px);
+}

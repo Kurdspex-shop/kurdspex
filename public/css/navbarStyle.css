@@ -1,0 +1,76 @@
+.navbar-brand {
+    font-size: 25px;
+}
+
+.nav-item {
+    font-size: 20px;
+}
+
+.lsbtn {
+    font-size: 18px;
+}
+
+.l {
+    min-height: 1000px;
+}
+
+#nav {
+    display: none;
+}
+
+.logobtn {
+    font-size: 30px;
+    padding: 0;
+    color: #F8F9FA;
+}
+
+#cart:hover {
+    color: #4b86e6;
+}
+
+/* top button */
+.top-button {
+    position: fixed;
+    top: 89%;
+    right: 1%;
+    color: white;
+    font-size: 25px;
+    transition: all 450ms;
+    z-index: 10;
+}
+
+.top-button:hover {
+    background-color: #393e46;
+}
+
+.top-button .fas {
+    transition: all 800ms;
+}
+
+.top-button:hover .fas {
+    color: white;
+    transform: translateY(-4px);
+}
+
+.icon {
+    font-size: 30px;
+    color: #eff0f1;
+    transition: all 500ms;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    color: #23d2db;
+}
+
+.accountBtn {
+    font-size: 30px;
+    padding: 0;
+    color: #F8F9FA;
+    transition: all 300ms;
+}
+
+.accountBtn:hover {
+    color: #F8F9FA;
+    transform: scale(1.2);
+}

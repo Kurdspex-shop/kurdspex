@@ -1,0 +1,43 @@
+.home .slide img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.offers h1 {
+    font-size: 40px;
+}
+
+.offers hr, .home hr {
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    border: 0;
+    height: 2px;
+    background: #212529;
+    background-image: linear-gradient(to right, rgb(255, 255, 255), #212529, rgb(255, 255, 255));
+}
+
+.service .card {
+    border: none;
+}
+
+.service .card img {
+    height: 250px;
+}
+
+.icon i {
+    font-size: 70px;
+    color: #2b3036;
+}
+
+.icon .fa-facebook-messenger:hover {
+    color: #307bf5;
+}
+
+.icon .fa-telegram:hover {
+    color: #4b86e6;
+}
+
+.icon .fa-viber:hover {
+    color: #6603b8;
+}

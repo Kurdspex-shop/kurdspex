@@ -1,0 +1,117 @@
+.economy .title {
+    border-radius: 15px;
+}
+
+.economy .title h1 {
+    font-size: 50px;
+}
+
+.economy .main h1 {
+    font-size: 100px;
+    margin-top: 0;
+}
+
+.economy .main p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.economy .title .card-header {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.economy .income {
+    background-color: #1485005d;
+    transition: all 500ms;
+}
+
+.economy .income:hover {
+    background-color: #14850069;
+}
+
+.economy .expense {
+    background-color: #8500005d;
+    transition: all 500ms;
+}
+
+.economy .expense:hover {
+    background-color: #85000067;
+}
+
+.filter label {
+    font-size: 25px;
+}
+
+.filter input {
+    height: 35px;
+    width: 20%;
+}
+
+.filter select {
+    width: 25%;
+}
+
+.statistics div {
+    margin-top: 30px;
+    font-size: 40px;
+}
+
+#plus {
+    font-size: 25px;
+    display: flex;
+    position: fixed;
+    top: 68.5%;
+    right: 2%;
+    color: white;
+    transition: all 500ms;
+}
+
+#plus:hover {
+    background-color: #393e46;
+}
+
+#plus .fas {
+    transition: all 250ms;
+}
+
+#plus:hover .fas {
+    transform: rotate(180deg);
+}
+
+.submit {
+    color: white;
+    transition: all 500ms;
+}
+
+.submit:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+
+.economy .btn .fas {
+    font-size: 0;
+    transition: all 500ms;
+}
+
+.economy .record:hover .btn .fas {
+    font-size: 20px;
+}
+
+.economy .record .btn .fas:hover {
+    color: #940808;
+}
+
+#IQD-btn {
+    font-size: 13px;
+    display: flex;
+    position: fixed;
+    top: 75.6%;
+    right: 2%;
+    color: white;
+    transition: all 500ms;
+}
+
+#IQD-btn:hover {
+    background-color: #393e46;
+}

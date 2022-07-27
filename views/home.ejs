@@ -1,0 +1,148 @@
+<%- include("portials/header") %>
+<link rel="stylesheet" href="../css/itemsStyle.css">
+<link rel="stylesheet" href="../css/homeStyle.css">
+<link rel="stylesheet" href="../css/navbarStyle.css">
+<link rel="stylesheet" href="../css/infobarStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+
+<%- include("portials/navbar") %>
+<div id="nav">Home</div>
+
+<div class="container-fluid p-0 home" style="min-height: 1000px;">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./cover1.svg" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <a href="http://robokurd.kurdspex.com/home"><img src="./Panel2.svg" class="d-block w-100"></a>
+          </div>
+          <div class="carousel-item">
+            <img src="./Panel2.svg" class="d-block w-100">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="offers mt-5">
+        <div class="text-center display-5">Best Offers</div>
+        <hr>
+
+        <div class="container-fluid">
+            <div class="row d-flex mt-3 items text-light mb-4" style="min-height: 0;">
+                <% for(var i = 0; i < item.offers.length; i++){ %>
+                    <div class="col-xxl-3 col-lg-4 col-md-6 col-12">
+                        <a href="/items/<%= item.offers[i].id %>" class="item-btn text-light">
+                            <div class="card">
+                                <img src=<%= item.offers[i].main_image %> class="card-img-top item-img">
+                                <div class="card-body mx-0 mt-2 pb-1 px-0">
+                                  <h5 class="card-title mx-2"><%= item.offers[i].item_name %><span class="badge rounded-pill bg-success ms-3" style="font-weight: 400;"><%= item.offers[i].mode %></span></h5>
+                                  <p class="card-text px-2 mb-0"><%= item.offers[i].item_description.substring(0, 85) %>... </p>
+
+                                    <% if(item.offers[i].discount !== 0) { %>
+                                        <p class="text-center m-0 discount">$<%= item.offers[i].discount %></p>
+                                    <% } else if(item.offers[i].coin !== 0) { %>
+                                        <p class="text-center text-warning m-0 discount" style="text-decoration: none;">+<%= item.offers[i].coin %> coin</p>
+                                    <% } else { %>
+                                        <p class="text-center m-0 discount" style="opacity: 0;">2</p>
+                                    <% } %> 
+
+                                  <div class="d-flex buy mt-0">
+                                    <h6 class="mx-auto">$<%= item.offers[i].price %></h6>
+                                  </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>  
+            </div>
+        </div>
+    </div>
+
+    <div class="offers mt-5">
+        <div class="text-center display-5">Recommend Items</div>
+        <hr>
+
+        <div class="container-fluid">
+            <div class="row d-flex mt-3 items text-light mb-4" style="min-height: 0;">
+                <% for(var i = 0; i < item.recommend.length; i++){ %>
+                    <div class="col-xxl-3 col-lg-4 col-md-6 col-12">
+                        <a href="/items/<%= item.recommend[i].id %>" class="item-btn text-light">
+                            <div class="card">
+                                <img src=<%= item.recommend[i].main_image %> class="card-img-top item-img">
+                                <div class="card-body mx-0 mt-2 pb-1 px-0">
+                                  <h5 class="card-title mx-2"><%= item.recommend[i].item_name %><span class="badge rounded-pill bg-success ms-3" style="font-weight: 400;"><%= item.recommend[i].mode %></span></h5>
+                                  <p class="card-text px-2 mb-0"><%= item.recommend[i].item_description.substring(0, 85) %>... </p>
+
+                                    <% if(item.recommend[i].discount !== 0) { %>
+                                        <p class="text-center m-0 discount">$<%= item.recommend[i].discount %></p>
+                                    <% } else if(item.recommend[i].coin !== 0) { %>
+                                        <p class="text-center text-warning m-0 discount" style="text-decoration: none;">+<%= item.recommend[i].coin %> coin</p>
+                                    <% } else { %>
+                                        <p class="text-center m-0 discount" style="opacity: 0;">2</p>
+                                    <% } %> 
+
+                                  <div class="d-flex buy mt-0">
+                                    <h6 class="mx-auto">$<%= item.recommend[i].price %></h6>
+                                  </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>  
+            </div>
+        </div>
+    </div>
+
+    <div class="offers mt-5 mb-5">
+        <div class="text-center display-5">New Items</div>
+        <hr>
+
+        <div class="container-fluid">
+            <div class="row d-flex mt-3 items text-light mb-4" style="min-height: 0;">
+                <% for(var i = 0; i < item.newest.length; i++){ %>
+                    <div class="col-xxl-3 col-lg-4 col-md-6 col-12">
+                        <a href="/items/<%= item.newest[i].id %>" class="item-btn text-light">
+                            <div class="card">
+                                <img src=<%= item.newest[i].main_image %> class="card-img-top item-img">
+                                <div class="card-body mx-0 mt-2 pb-1 px-0">
+                                  <h5 class="card-title mx-2"><%= item.newest[i].item_name %><span class="badge rounded-pill bg-success ms-3" style="font-weight: 400;"><%= item.newest[i].mode %></span></h5>
+                                  <p class="card-text px-2 mb-0"><%= item.newest[i].item_description.substring(0, 85) %>... </p>
+
+                                    <% if(item.newest[i].discount !== 0) { %>
+                                        <p class="text-center m-0 discount">$<%= item.newest[i].discount %></p>
+                                    <% } else if(item.newest[i].coin !== 0) { %>
+                                        <p class="text-center text-warning m-0 discount" style="text-decoration: none;">+<%= item.newest[i].coin %> coin</p>
+                                    <% } else { %>
+                                        <p class="text-center m-0 discount" style="opacity: 0;">2</p>
+                                    <% } %> 
+
+                                  <div class="d-flex buy mt-0">
+                                    <h6 class="mx-auto">$<%= item.newest[i].price %></h6>
+                                  </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>  
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mb-5">
+        <a href="/items" class="btn btn-outline-dark mt-5 rounded-pill" style="font-size: 30px; width: 300px;">See All Items</a>
+    </div>
+</div>
+
+<%- include("portials/infobar") %> 
+<%- include("portials/footer") %>

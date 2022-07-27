@@ -1,0 +1,41 @@
+<%- include("../portials/header") %>
+<link rel="stylesheet" href="../../css/accountStyle.css">
+<link rel="stylesheet" href="../../css/infobarStyle.css">
+<link rel="stylesheet" href="../../css/navbarStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+
+<%- include("../portials/navbar") %>
+
+<div class="container account mt-3" style="min-height: 1000px;">
+    <div class="row">
+        <div class="col-xl-12 mx-auto">
+            <div class="card text-center bg-dark text-light title">
+                <div class="card-body">
+                  <h1 class="card-title">Account Settings</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("../portials/accountInterface") %>
+
+    <div class="row">
+        <div class="col-xl-12 mx-auto mt-2 mb-4 job px-0">
+            <div class="card text-center bg-light text-dark title shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="d-flex mx-auto">
+                            <div class="h1 text-center text">You have <%= user.coin %> coins</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../portials/infobar") %> 
+<%- include("../portials/footer") %>

@@ -1,0 +1,71 @@
+<%- include("../portials/header") %>
+<link rel="stylesheet" href="../../css/itemsStyle.css">
+<link rel="stylesheet" href="../../css/blogStyle.css">
+<link rel="stylesheet" href="../../css/infobarStyle.css">
+<link rel="stylesheet" href="../../css/navbarStyle.css">
+<link rel="stylesheet" href="../../css/deleteStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+
+<%- include("../portials/navbar") %>
+
+<div class="container-fluid mt-3" style="min-height: 1000px;">
+    <div class="row">
+        <div class="col-xl-11 mx-auto">
+            <div class="card text-center bg-dark text-light title">
+                <div class="card-body">
+                  <h1 class="card-title">Delete Confirm</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-xl-11 mx-auto">
+            <div class="col-xl-12 mx-auto">
+                <div class="card text-center bg-light text-dark main">
+                    <div class="card-header bg-dark text-light main-header">
+                        <h3 class="card-title" style="font-weight: 400;">Items</h3>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="d-flex m-0 items text-light">
+                            <% for(var i = 0; i < items.length; i++){ %>
+                                <div class="col-xl-2 col-md-12">
+                                    <a href="/items/<%= items[i].id %>" class="item-btn text-light">
+                                        <div class="card">
+                                            <img src=<%= items[i].main_image %> class="card-img-top item-img">
+                                            <div class="card-body mx-0 mt-2 pb-1 px-0">
+                                              <h5 class="card-title mx-2"><%= items[i].item_name %><span class="badge rounded-pill bg-success ms-3"><%= items[i].mode %></span></h5>
+                                              <p class="card-text px-2 mb-0"><%= items[i].item_description.substring(0, 95) %>... </p>
+                        
+                                              <div class="d-flex buy mt-2">
+                                                <h6 class="mx-auto">$<%= items[i].price %></h6>
+                                              </div>
+                                              <div class="d-flex">
+                                                <form class="ms-2 text-center" id="option" action="/items/<%= items[i].id %>" method="POST">
+                                                    <button type="submit" class="btn btn-success px-4 mx-2 ms-5">Restore</button>
+                                                </form>
+                                                <form class="ms-2 text-center" id="option" action="/items/<%= items[i].id %>?_method=DELETE" method="POST">
+                                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">More</button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><button type="submit" class="btn btn-danger px-5 m-0 ms-2">Delete</button></li>
+                                                    </ul>
+                                                </form>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            <% } %>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../portials/infobar") %> 
+<%- include("../portials/footer") %>

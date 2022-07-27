@@ -1,0 +1,75 @@
+<%- include("../portials/header") %>
+<link rel="stylesheet" href="../../css/economyStyle.css">
+<link rel="stylesheet" href="../../css/infobarStyle.css">
+<link rel="stylesheet" href="../../css/navbarStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+    
+<%- include("../portials/navbar") %>
+
+<div id="IQD" class="d-none"><%= IQD %></div>
+<div id="IQD-btn" class="btn btn-dark rounded-circle p-3">IQD</div>
+
+<div class="container economy mt-3 mb-5" style="min-height: 1000px;">
+    <div class="row">
+        <div class="col-xl-12 mx-auto">
+            <div class="card text-center bg-dark text-light title">
+                <div class="card-body">
+                  <h1 class="card-title">Statistics</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12 mx-auto mt-4">
+            <form class="d-flex filter mx-auto w-75" action="/economy/list" method="GET">
+                <label class="mx-3 my-auto"> From </label>
+                <input class="my-auto" type="date" name="min">
+                <label class="mx-3 my-auto"> To </label>
+                <input class="my-auto" type="date" name="max">
+                <button class="btn btn-outline-dark ms-auto w-25" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-5 text-center statistics">
+        <div class="col-xl-6 mx-auto">
+            <div class="h1">Total Profit <span class="text-success"><span class="money"><%= statistics.profit %></span><span class="p">$</span></span></div>
+        </div>
+
+        <div class="col-xl-6 mx-auto">
+            <div class="h1">Total Expenses <span class="text-danger"><span class="money"><%= statistics.expenses %></span><span class="p">$</span></span></div>
+        </div>
+
+        <div class="col-xl-6 mx-auto">
+            <div class="h1">Item Profit <span class="text-success"><span class="money"><%= statistics.item %></span><span class="p">$</span></span></div>
+        </div>
+
+        <div class="col-xl-6 mx-auto">
+            <div class="h1">Services Profit <span class="text-success"><span class="money"><%= statistics.service %></span><span class="p">$</span></span></div>
+        </div>
+
+        <div class="col-xl-6 mx-auto">
+            <div class="h1">Card Profit <span class="text-success"><span class="money"><%= statistics.card %></span><span class="p">$</span></span></div>
+        </div>
+
+        <div class="col-xl-6 mx-auto">
+            <div class="h1">Google Ads Profit <span class="text-success"><span class="money"><%= statistics.ads %></span><span class="p">$</span></span></div>
+        </div>
+
+        <div class="col-xl-6 mx-auto">
+            <div class="h1">Coin Expenses <span class="text-danger"><span class="money"><%= statistics.coin %></span><span class="p">$</span></span></div>
+        </div>
+
+        <div class="col-xl-6 mx-auto">
+            <div class="h1">Buying Expenses <span class="text-danger"><span class="money"><%= statistics.buying %></span><span class="p">$</span></span></div>
+        </div>
+    </div>
+</div>
+
+<%- include("../portials/infobar") %> 
+<script src="../javaScript/IQD.js"></script>
+<%- include("../portials/footer") %>

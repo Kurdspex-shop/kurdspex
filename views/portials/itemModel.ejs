@@ -1,0 +1,46 @@
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <div class="d-none lang"><%= lang %></div>
+          <h4 class="modal-title text-light mx-auto display-5 KU d-none" id="ModalLabel">چۆنیەتی کڕینی کاڵا</h4>
+          <h4 class="modal-title text-light mx-auto display-5 EN d-none" id="ModalLabel">How To Buy Product</h4>
+          <h4 class="modal-title text-light mx-auto display-5 AR d-none" id="ModalLabel">كيفية شراء المنتج</h4>
+          <select class="form-select p-1 ps-2 bg-dark text-light language">
+            <option value="KU" class="option">KU</option>
+            <option value="AR" class="option">AR</option>
+            <option value="EN" class="option">EN</option>
+          </select>
+        </div>
+        <div class="modal-body">
+        <div class="text-center mb-4 KU d-none">بۆ کڕینی ئەم کاڵایە پەیوەندیمان پێوەبکە لەرێگای ئەم لینکانەی خوارەوە</div>
+        <div class="text-center mb-4 EN d-none">To buy this product you can contact us throw those links</div>
+        <div class="text-center mb-4 AR d-none">لشراء هذا المنتج يمكنك الاتصال بنا من خلال هذه الروابط</div>
+        <div class="job-cv mt-2">
+            <div class="d-flex flex-row mx-2 text-dark">
+                <div class="mx-auto">
+                    <a href="https://www.facebook.com/Kurdspex-101028595633243" class="icon" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+                <div class="mx-auto">
+                    <a href="https://t.me/Kurdspex" class="icon" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+                <div class="mx-auto">
+                    <a href="viber://chat?number=07518979796" class="icon" target="_blank">
+                        <i class="fab fa-viber"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3 KU d-none">یان دەتوانی پەیوەندیمان پێوەبکەیمان پێوەبکەی لە رێگای ئەمژمارەی پەیوەندیەی خوارەوە</div>
+        <div class="text-center mt-3 EN d-none">or you can call us at this number</div>
+        <div class="text-center mt-3 AR d-none">أو يمكنك الاتصال بنا على هذا الرقم</div>
+        <div class="text-center h1">0751 897 9796</div>
+        <div class="text-center display-4 mt-5"><%= new Intl.NumberFormat().format(Math.floor(IQD * item.price)) %> IQD</div>
+      </div>
+    </div>
+  </div>
+</div>

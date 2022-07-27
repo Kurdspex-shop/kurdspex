@@ -1,0 +1,148 @@
+<%- include("../portials/header") %>
+<link rel="stylesheet" href="../../css/itemsStyle.css">
+<link rel="stylesheet" href="../../css/accountStyle.css">
+<link rel="stylesheet" href="../../css/searchBarStyle.css">
+<link rel="stylesheet" href="../../css/infobarStyle.css">
+<link rel="stylesheet" href="../../css/navbarStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+    
+<%- include("../portials/navbar") %>
+
+<div class="container account mt-3">
+    <div class="row">
+        <div class="col-xl-12 mx-auto">
+            <div class="card text-center bg-dark text-light title">
+                <div class="card-body">
+                  <h1 class="card-title">Account Settings</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("../portials/accountInterface") %>
+
+    <% if(coin) { %>
+        <div class="row">
+            <div class="col-xl-12 mx-auto mt-2 mb-4 job px-0">
+                <div class="card text-center bg-light text-dark title shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="d-flex mx-auto ps-5">
+                                <a href="/economy" class="btn btn-outline-success rounded-pill my-auto ms-5 px-4 py-2"><h4 class="mb-1" style="font-weight: 400;">Item Sells Records</h4></a>
+                                <a href="/Money-Converter" class="btn btn-outline-dark rounded-pill my-auto mx-5 px-4 py-2"><h4 class="mb-1" style="font-weight: 400;">Money Converter</h4></a>
+                                <button type="button" class="btn btn-outline-dark rounded-pill my-auto me-5 px-4 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><h4 class="mb-1" style="font-weight: 400;">USD</h4></button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                      <div class="modal-content">
+                                        <div class="modal-header mx-auto text-center">
+                                          <h5 class="modal-title h3" id="exampleModalLabel">Enter the value of 100$ in IQD</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                          <form class="text-center" action="/USD" method="POST">
+                                            <input type="text" name="usd">
+                                            <input type="submit" class="d-none">
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %> 
+
+    <% if(superadmin) { %>
+        <div class="row">
+            <div class="col-xl-12 mx-auto mt-2 mb-4 job px-0">
+                <div class="card text-center bg-light text-dark title shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="d-flex mx-auto ps-5">
+                                <a href="/accountMaster" class="btn btn-outline-success rounded-pill my-auto mx-auto px-4 py-2"><h4 class="mb-1" style="font-weight: 400;">Account Master</h4></a>
+                                <a href="/deleteConfirm" class="btn btn-outline-dark rounded-pill my-auto mx-5 px-4 py-2"><h4 class="mb-1" style="font-weight: 400;">Delete Confirm</h4></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<div class="container card bg-light shadow-sm mb-5" id="master">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="row mt-2">
+                <form class="d-flex" action="/account" method="GET">
+                    <a href="/items/new" class="btn btn-success mt-2 mx-auto w-25 add">Add Item</a>
+                    <input type="text" name="iv" style="display: none;" value="true">
+                    <input class="btn btn-danger mt-2 mx-auto w-25 add" type="submit" value="Show Hide Items">
+                </form>
+                <form class="d-flex mt-3 search-bar" action="/account" method="GET">
+                    <input class="form-control" name="search" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark ps-2" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+
+                <div class="col-10 mx-auto mt-2">
+                    <form class="d-flex filter text-center" action="/account" method="GET" style="height: 38px;">
+                        <label class="h3 mx-auto" style="font-weight: 300;">Item Type</label>
+                        <select name="type" class="form-select mx-auto" style="width: 30%;">
+                            <option value="All" selected>All</option>
+                            <%- include("../option/itemOption") %>
+                        </select>
+        
+                        <label class="h3 mx-auto" style="font-weight: 300;">Item State</label>
+                        <select name="state" class="form-select mx-auto" style="width: 15%;">
+                            <option value="All" selected>All</option>
+                            <option value="new">New</option>
+                            <option value="used">Used</option>
+                        </select>
+                        <button class="btn btn-outline-dark px-5 ms-3" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row d-flex mt-3 items text-light mb-4">
+                <% for(var i = 0; i < items.length; i++){ %>
+                    <div class="col-xxl-3 col-lg-4 col-md-6 col-12">
+                        <a href="/items/<%= items[i].id %>" class="item-btn text-light">
+                            <div class="card">
+                                <img src=<%= items[i].main_image %> class="card-img-top item-img">
+                                <div class="card-body mx-0 mt-2 pb-1 px-0">
+                                  <h5 class="card-title mx-2"><%= items[i].item_name %><span class="badge rounded-pill bg-success ms-3"><%= items[i].mode %></span></h5>
+                                  <p class="card-text px-2 mb-0"><%= items[i].item_description.substring(0, 85) %>... </p>
+
+                                    <% if(items[i].discount !== 0) { %>
+                                        <p class="text-center m-0 discount">$<%= items[i].discount %></p>
+                                    <% } else { %>
+                                        <p class="text-center m-0 discount" style="opacity: 0;">2</p>
+                                    <% } %> 
+
+                                  <div class="d-flex buy mt-0">
+                                    <h6 class="mx-auto">$<%= items[i].price %></h6>
+                                  </div>
+                                  <form class="ms-2 text-center" id="option" action="/items/<%= items[i].id %>" method="POST">
+                                    <a class="btn btn-success px-5 mx-2" href="/items/<%= items[i].id %>/edit">Edit</a>
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">More</button>
+                                    <ul class="dropdown-menu">
+                                        <li><button type="submit" class="btn btn-danger px-5 m-0 ms-2">Delete</button></li>
+                                    </ul>
+                                  </form>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>  
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../portials/infobar") %> 
+<%- include("../portials/footer") %>

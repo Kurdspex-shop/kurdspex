@@ -1,0 +1,87 @@
+<%- include("../portials/header") %>
+<link rel="stylesheet" href="../../css/economyStyle.css">
+<link rel="stylesheet" href="../../css/infobarStyle.css">
+<link rel="stylesheet" href="../../css/navbarStyle.css">
+
+<title>Kurdspex</title>
+</head>
+<body>
+    
+<%- include("../portials/navbar") %>
+
+<div id="IQD" class="d-none"><%= IQD %></div>
+<div id="IQD-btn" class="btn btn-dark rounded-circle p-3">IQD</div>
+
+<div class="container economy mt-3 mb-5" style="min-height: 1000px;">
+    <div class="row">
+        <div class="col-xl-12 mx-auto">
+            <div class="card text-center bg-dark text-light title">
+                <div class="card-body">
+                  <h1 class="card-title">Records list</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12 mx-auto mt-4">
+            <form class="d-flex filter text-center" action="/economy/list" method="GET">
+                <label class="mx-3 my-auto"> From </label>
+                <input class="my-auto" type="date" name="min">
+                <label class="mx-3 my-auto"> To </label>
+                <input class="my-auto" type="date" name="max">
+                <label class="mx-3 my-auto"> Of Type </label>
+                <select class="form-select my-auto" name="type">
+                    <option value="All">All</option>
+                    <option value="Coin">Coin</option>
+                    <option value="Item">Item</option>
+                    <option value="Card">Card</option>
+                    <option value="Services">Services</option>
+                    <option value="GoogleAds">Google Ads</option>
+                    <option value="buying">Buying</option>
+                    <option value="Salary">Salary</option>
+                </select>
+                <button class="btn btn-outline-dark ms-3" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-xl-12 mx-auto">
+            <div class="card bg-light text-dark title">
+                <div class="card-header bg-dark text-light text-center">
+                    <h3 class="card-title" style="font-weight: 400;">Records</h3>
+                </div>
+                <div class="card-body p-0">
+                    <% records.forEach(function(record){ %>
+                        <% if(record.record_money > 0) { %>
+                            <div class="d-flex record income p-2">
+                                <h5 class="ps-2 my-auto" style="width: 15%;"><%= record.record_name %></h5>
+                                <h5 class="my-auto" style="width: 13%;">+<span class="money"><%= record.record_money %></span><span class="p">$</span></h5>
+                                <span class="my-auto" style="width: 63%; font-weight: 600;"><%= record.record_description %></span>
+                                <h5 class="my-auto" style="width: 8%;"><%= record.created.toLocaleDateString("en-US") %></h5>
+                            </div>
+                        <% } else { %>
+                            <div class="d-flex record expense p-2">
+                                <h5 class="ps-2 my-auto" style="width: 15%;"><%= record.record_name %></h5>
+                                <h5 class="my-auto" style="width: 13%;"><span class="money"><%= record.record_money %></span><span class="p">$</span></h5>
+                                <span class="my-auto" style="width: 63%; font-weight: 600;"><%= record.record_description %></span>
+                                <h5 class="my-auto" style="width: 8%;"><%= record.created.toLocaleDateString("en-US") %></h5>
+                            </div>
+                        <% } %> 
+                    <% }); %> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="number" id="num" value="<%= info.number %>" style="display: none;">
+    <input type="number" id="page" value="<%= info.page %>" style="display: none;">
+
+    <ul class="pagination mt-5 justify-content-center"></ul>
+</div>
+
+<%- include("../portials/infobar") %> 
+<script src="../../javaScript/paginatedRecord.js"></script>
+<script src="../javaScript/IQD.js"></script>
+<%- include("../portials/footer") %>
